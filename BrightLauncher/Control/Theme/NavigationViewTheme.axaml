@@ -1,0 +1,76 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				    xmlns:c="using:BrightLauncher.Control">
+	<Design.PreviewWith>
+		<Border Height="300" Width="800">
+			<c:NavigationView>
+				<c:NavigationView.Items>
+					<RadioButton Width="80" Background="#1D1D1D" Height="30" Content="启动"/>
+					<RadioButton Width="80" Background="#1D1D1D" Height="30" Content="下载"/>
+				</c:NavigationView.Items>
+			</c:NavigationView>
+		</Border>
+	</Design.PreviewWith>
+	
+	<ControlTheme TargetType="c:NavigationView" x:Key="{x:Type c:NavigationView}">
+		<Setter Property="Height" Value="20"/>
+		<Setter Property="VerticalAlignment" Value="Top"/>
+		<Setter Property="Width" Value="150"/>
+		<Setter Property="Margin" Value="0"/>
+		<Setter Property="ClipToBounds" Value="False"/>
+		<Setter Property="ItemsPanel">
+			<ItemsPanelTemplate>
+				<StackPanel Spacing="10" Orientation="Horizontal" HorizontalAlignment="Center"/>
+			</ItemsPanelTemplate>
+		</Setter>
+		<Setter Property="Transitions">
+			<Transitions>
+				<DoubleTransition Property="Opacity"
+								  Duration="0:0:0.35"
+								  Easing="ExponentialEaseOut"/>
+
+				<DoubleTransition Property="Width"
+				  Duration="0:0:0.35"
+				  Easing="ExponentialEaseOut"/>
+
+				<DoubleTransition Property="Height"
+				  Duration="0:0:0.35"
+				  Easing="ExponentialEaseOut"/>
+			</Transitions>
+		</Setter>
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Border ClipToBounds="False" Name="PART_LayoutBorder" 
+						Background="#1D1D1D" 
+						CornerRadius="20" 
+					    Width="{TemplateBinding Width}"
+						Height="{TemplateBinding Height}">
+					<ScrollViewer Opacity="0"
+								  Margin="5 2"
+								  Name="PART_ScrollViewer"
+								  Transitions="{TemplateBinding Transitions}"
+								  AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+								  VerticalSnapPointsType="{TemplateBinding (ScrollViewer.VerticalSnapPointsType)}"
+								  IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+								  HorizontalSnapPointsType="{TemplateBinding (ScrollViewer.HorizontalSnapPointsType)}"
+								  BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+								  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+								  HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}">
+						<ItemsPresenter Name="PART_ItemsPresenter"
+										Margin="{TemplateBinding Padding}"
+										ItemsPanel="{TemplateBinding ItemsPanel}" />
+					</ScrollViewer>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+
+		<Style Selector="^:pointerover">
+			<Setter Property="Width" Value="400"/>
+			<Setter Property="Height" Value="40"/>
+		</Style>
+
+		<Style Selector="^:pointerover /template/ ScrollViewer#PART_ScrollViewer">
+			<Setter Property="Opacity" Value="1"/>
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>

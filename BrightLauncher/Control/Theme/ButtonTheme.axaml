@@ -1,0 +1,89 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<Design.PreviewWith>
+		<Border Padding="20" Background="White">
+			<Button Classes="model" Content="1" Width="400" CornerRadius="10" Height="200" Background="Gray"/>
+		</Border>
+	</Design.PreviewWith>
+	
+	<ControlTheme TargetType="Button" x:Key="{x:Type Button}">
+		<Style Selector="^.mac">
+			<Setter Property="Width" Value="15"/>
+			<Setter Property="Height" Value="15"/>
+			<Setter Property="Background" Value="Red"/>
+			<Setter Property="CornerRadius" Value="114514"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="Template">
+				<ControlTemplate>
+					<Border CornerRadius="{TemplateBinding CornerRadius}"
+							Background="{TemplateBinding Background}">
+						<ContentPresenter Opacity="0"
+										  RecognizesAccessKey="True"
+										  Name="PART_ContentPresenter"
+				                          Content="{TemplateBinding Content}"
+				                          Padding="{TemplateBinding Padding}"
+				                          Transitions="{TemplateBinding Transitions}"
+				                          Background="{TemplateBinding Background}"
+				                          BorderBrush="{TemplateBinding BorderBrush}"
+				                          CornerRadius="{TemplateBinding CornerRadius}"
+				                          BorderThickness="{TemplateBinding BorderThickness}"
+				                          ContentTemplate="{TemplateBinding ContentTemplate}"
+				                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+				                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+					</Border>
+				</ControlTemplate>
+			</Setter>
+		</Style>
+
+		<Style Selector="^.button">
+			<Setter Property="Width" Value="{TemplateBinding Width}"/>
+			<Setter Property="Height" Value="{TemplateBinding Width}"/>
+			<Setter Property="CornerRadius" Value="{TemplateBinding CornerRadius}"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="ClipToBounds" Value="False"/>
+			<Setter Property="Template">
+				<ControlTemplate>
+					<Border x:Name="BackgroundBorder" CornerRadius="{TemplateBinding CornerRadius}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}"
+							Background="{TemplateBinding Background}"
+							BoxShadow="0 0 0 0 #46000000">
+						
+						<ContentPresenter VerticalAlignment="{TemplateBinding VerticalAlignment}"
+							   HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+							   Content="{TemplateBinding Content}"
+							   Foreground="White"
+							   FontSize="{TemplateBinding FontSize}"
+							   FontWeight="{TemplateBinding FontWeight}"/>
+						
+						<Border.Transitions>
+							<Transitions>
+								<BrushTransition Property="Background"
+												  Duration="0:0:0.10"
+												  Easing="SineEaseOut"/>
+
+								<BoxShadowsTransition Property="BoxShadow"
+												  Duration="0:0:0.25"
+												  Easing="SineEaseOut"/>
+
+								<ThicknessTransition Property="Margin"
+												  Duration="0:0:0.20"
+												  Easing="SineEaseOut"/>
+							</Transitions>
+						</Border.Transitions>
+					</Border>
+				</ControlTemplate>
+			</Setter>
+		</Style>
+
+		<Style Selector="^.mac:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+			<Setter Property="Opacity" Value="1"/>
+		</Style>
+
+		<Style Selector="^.button:pointerover /template/ Border#BackgroundBorder">
+			<Setter Property="BoxShadow" Value="0 0 2 4 #151515"/>
+		</Style>
+	</ControlTheme>
+</ResourceDictionary>

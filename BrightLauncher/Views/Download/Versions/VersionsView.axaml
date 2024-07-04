@@ -1,0 +1,127 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="BrightLauncher.Views.Download.VersionsView">
+	<Grid RowDefinitions="Auto, 1*">
+		<Border Margin="20 30 20 20"
+				Background="#202020"
+				BoxShadow="0 0 2 4 #151515"
+				CornerRadius="20"
+				Padding="16 12">
+			<Grid ColumnDefinitions="Auto, Auto, 1*">
+				<Button Content="&#xE72B;"
+						Grid.Column="0"
+						Command="{Binding BackCommand}"
+						Classes="button"
+						CornerRadius="114514"
+						Width="30"
+						Height="30"
+						Background="#1D1D1D"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Center"
+						FontFamily="{StaticResource FontIcon}"
+						VerticalContentAlignment="Center">
+
+				</Button>
+
+				<ComboBox Margin="16 0 0 0" Grid.Column="1" CornerRadius="20"
+						  SelectedIndex="{Binding CurrentVersionType}">
+					<ComboBoxItem Content="正式版"/>
+					<ComboBoxItem Content="快照版"/>
+					<ComboBoxItem Content="Beta 测试版"/>
+					<ComboBoxItem Content="Alpha 测试版"/>
+				</ComboBox>
+
+				<TextBox CornerRadius="20"
+						 Grid.Column="2"
+						 Margin="16 0 0 0"
+						 Watermark="搜索..."/>
+			</Grid>
+		</Border>
+
+		<Border Grid.Row="1" Margin="20 0 20 20"
+				Background="#202020"
+				BoxShadow="0 0 2 4 #151515"
+				CornerRadius="20">
+			<Grid>
+				<ListBox IsVisible="{Binding IsLoadFinish}"
+						 Background="Transparent"
+						 SelectedItem="{Binding SelectionGame}"
+						 ItemsSource="{Binding VersionManifestEntries}">
+					<ListBox.Styles>
+						<Style Selector="ListBoxItem">
+							<Setter Property="CornerRadius" Value="20"/>
+							<Setter Property="Margin" Value="8 8 8 0"/>
+							<Setter Property="Transitions">
+								<Transitions>
+									<ThicknessTransition Duration="0:0:0.3"
+														 Property="Margin"
+														 Easing="ExponentialEaseOut"/>
+
+									<BrushTransition Duration="0:0:0.3"
+														 Property="Background"
+														 Easing="ExponentialEaseOut"/>
+								</Transitions>
+							</Setter>
+							<Setter Property="Template">
+								<ControlTemplate>
+									<Border Background="#202020"
+											Padding="0 6"
+											Name="PRAT_Layout"
+											Transitions="{TemplateBinding Transitions}"
+											CornerRadius="{TemplateBinding CornerRadius}">
+										<Grid ColumnDefinitions="Auto, 1*">
+											<Border Margin="10 6" Height="25" Width="25">
+												<Border.Background>
+													<ImageBrush Source="/Assets/grass.webp" Stretch="UniformToFill"/>
+												</Border.Background>
+											</Border>
+
+											<Grid Name="PART_TextBlockGroup"
+												  Grid.Column="1"
+												  RowDefinitions="Auto, Auto"
+												  Transitions="{TemplateBinding Transitions}">
+												<TextBlock Text="{Binding Id}"
+														   FontWeight="SemiBold"
+														   FontSize="14"/>
+
+												<TextBlock
+														   FontWeight="Regular"
+														   FontSize="12"
+														   Grid.Row="1">
+													<Run Text="{Binding Type}"/>
+													<Run Text="{Binding ReleaseTime}"/>
+												</TextBlock>
+											</Grid>
+										</Grid>
+									</Border>
+								</ControlTemplate>
+							</Setter>
+						</Style>
+
+						<Style Selector="ListBoxItem:pointerover /template/ Grid#PART_TextBlockGroup">
+							<Setter Property="Margin" Value="12 0 0 0"/>
+						</Style>
+
+						<Style Selector="ListBoxItem:pointerover /template/ Border#PRAT_Layout">
+							<Setter Property="Background" Value="#151515"/>
+						</Style>
+					</ListBox.Styles>
+				</ListBox>
+
+				<StackPanel Spacing="12"
+							HorizontalAlignment="Center"
+							VerticalAlignment="Center"
+							IsVisible="{Binding IsLoading}">
+					<ProgressBar IsIndeterminate="True"/>
+					
+					<TextBlock Text="加载中"
+							   FontSize="16"
+							   HorizontalAlignment="Center"/>
+				</StackPanel>
+			</Grid>
+		</Border>
+	</Grid>
+</UserControl>

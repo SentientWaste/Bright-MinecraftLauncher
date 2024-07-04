@@ -1,0 +1,141 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="BrightLauncher.Views.Download.InstallView">
+	<Grid RowDefinitions="Auto, 1*">
+		<Border Margin="20 30 20 20"
+		Background="#202020"
+		BoxShadow="0 0 2 4 #151515"
+		CornerRadius="20"
+		Padding="16 12">
+			<Grid ColumnDefinitions="Auto, Auto, 1*, Auto, Auto,Auto">
+				<Border Margin="10 0" Height="35" Width="35">
+					<Border.Background>
+						<ImageBrush Source="/Assets/grass.webp" Stretch="UniformToFill"/>
+					</Border.Background>
+				</Border>
+
+				<Grid Name="PART_TextBlockGroup"
+					  Grid.Column="1"
+					  RowDefinitions="Auto, Auto">
+					<TextBlock Text="114514"
+							   FontWeight="SemiBold"
+							   FontSize="14"/>
+
+					<TextBlock
+							   FontWeight="Regular"
+							   FontSize="12"
+							   Grid.Row="1" Text="哼哼哼啊啊啊啊啊啊啊啊啊啊啊啊">
+					</TextBlock>
+				</Grid>
+
+				<Button Content="返回"
+						Grid.Column="4"
+		                Command="{Binding BackCommand}"
+		                Classes="button"
+		                Background="#181818"
+		                VerticalAlignment="Center"
+						Height="30"
+						Width="100"
+						CornerRadius="8"
+		                HorizontalAlignment="Center"
+		                VerticalContentAlignment="Center"
+						Padding="12 6">
+				</Button>
+
+				<Button Content="安装"
+		               Grid.Column="5"
+		               Command="{Binding BackCommand}"
+		               Classes="button"
+		               Background="#181818"
+		               VerticalAlignment="Center"
+		               Height="30"
+		               Width="100"
+		               CornerRadius="8"
+						Margin="8 0"
+		               HorizontalAlignment="Center"
+		               VerticalContentAlignment="Center"
+		               Padding="12 6">
+				</Button>
+			</Grid>
+		</Border>
+
+		<ItemsControl Grid.Row="1"
+					  ClipToBounds="False"
+					  Margin="20 16 20 20"
+					  VerticalAlignment="Top">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<StackPanel Spacing="12"/>
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+
+			<Border BoxShadow="0 0 2 4 #151515"
+					Background="#202020"
+					CornerRadius="20"
+					Padding="16 12">
+				<Grid ColumnDefinitions="Auto, Auto, 1*, Auto">
+					<Border Margin="10 0" Height="35" Width="35">
+						<Border.Background>
+							<ImageBrush Source="/Assets/forge.png" Stretch="UniformToFill"/>
+						</Border.Background>
+					</Border>
+
+					<TextBlock FontWeight="Bold"
+							   FontSize="18"
+							   VerticalAlignment="Center"
+							   Grid.Column="1"
+							   Text="Forge"/>
+
+					<ComboBox Grid.Column="3"
+							  ItemsSource="{Binding Forges}"/>
+				</Grid>
+			</Border>
+
+			<Border BoxShadow="0 0 2 4 #151515"
+					Background="#202020"
+					CornerRadius="20"
+					Padding="16 12">
+				<Grid ColumnDefinitions="Auto, Auto, 1*, Auto">
+					<Border Margin="10 0" Height="35" Width="35">
+						<Border.Background>
+							<ImageBrush Source="/Assets/fabric.png" Stretch="UniformToFill"/>
+						</Border.Background>
+					</Border>
+
+					<TextBlock FontWeight="Bold"
+							   FontSize="18"
+							   VerticalAlignment="Center"
+							   Grid.Column="1" Text="Fabric"/>
+
+					<ComboBox Grid.Column="3"
+							  ItemsSource="{Binding Fabrics}"/>
+				</Grid>
+			</Border>
+
+			<Border BoxShadow="0 0 2 4 #151515"
+					Background="#202020"
+					CornerRadius="20"
+					Padding="16 12">
+				<Grid ColumnDefinitions="Auto, Auto, 1*, Auto">
+					<Border Margin="10 0" Height="35" Width="35">
+						<Border.Background>
+							<ImageBrush Source="/Assets/optifine.png" Stretch="UniformToFill"/>
+						</Border.Background>
+					</Border>
+
+
+					<TextBlock FontWeight="Bold"
+							   FontSize="18"
+							   VerticalAlignment="Center"
+							   Grid.Column="1" Text="Optifine"/>
+					
+					<ComboBox Grid.Column="3"
+							  ItemsSource="{Binding Optifines}"/>
+				</Grid>
+			</Border>
+		</ItemsControl>		
+	</Grid>
+</UserControl>

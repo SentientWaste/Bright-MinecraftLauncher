@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="BrightLauncher.Views.HomeView">
+	
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="255"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+			<StackPanel Grid.Row="1" Margin="15" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+				<Button CornerRadius="10 10 0 0" Classes="button"
+						Margin="0 10 0 0"
+						Width="225"
+						Height="35"
+						Content="1.16.5 Forge"
+						Background="#1D1D2D">
+					<TextBlock Text="1.16.5 Forge" Margin="15 0 15 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+				</Button>
+				<Button Classes="button"  CornerRadius="0 0 10 10"
+						Width="225"
+						Height="75"
+						Background="#1D1D1D"
+						Margin="0 5 0 0"
+						FontSize="18"
+						FontWeight="Bold">
+					<TextBlock Text="启动" Margin="15 0 15 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+				</Button>
+			</StackPanel>
+	</Grid>
+</UserControl>

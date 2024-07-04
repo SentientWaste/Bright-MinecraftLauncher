@@ -1,0 +1,69 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="850" Height="510"
+		xmlns:c="using:BrightLauncher.Control"
+		TransparencyLevelHint="AcrylicBlur"
+		ExtendClientAreaChromeHints="NoChrome"
+		ExtendClientAreaTitleBarHeightHint="-1"
+        Background="Transparent"
+		WindowState="{Binding Windowst}"
+        ExtendClientAreaToDecorationsHint="True"
+        x:Class="BrightLauncher.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Bright">
+	<Grid>
+		<Panel>
+			<ExperimentalAcrylicBorder IsHitTestVisible="False">
+				<ExperimentalAcrylicBorder.Material>
+					<ExperimentalAcrylicMaterial
+						BackgroundSource="Digger"
+						TintColor="Black"
+						TintOpacity="1"
+						MaterialOpacity="0.65" />
+				</ExperimentalAcrylicBorder.Material>
+			</ExperimentalAcrylicBorder>
+		</Panel>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="30"/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+				<Grid>
+					<c:NavigationView Margin="0 10 0 0"
+							  HorizontalAlignment="Center">
+						<c:NavigationView.Items>
+							<RadioButton CornerRadius="20" Command="{Binding To_HomeCommand}" FontFamily="{StaticResource FontIcon}" Width="80" Background="#1D1D1D" Height="27" Content="&#xEA8A;"/>
+							<RadioButton CornerRadius="20" Command="{Binding To_DownloadCommand}" FontFamily="{StaticResource FontIcon}" Width="80" Background="#1D1D1D" Height="27" Content="&#xEDDC;"/>
+							<RadioButton CornerRadius="20" Command="{Binding To_PlaygroundCommand}" FontFamily="{StaticResource FontIcon}" Width="80" Background="#1D1D1D" Height="27" Content="&#xE7E7;"/>
+							<RadioButton CornerRadius="20" Command="{Binding To_SettingCommand}" FontFamily="{StaticResource FontIcon}" Width="80" Background="#1D1D1D" Height="27" Content="&#xF8B0;"/>
+						</c:NavigationView.Items>
+					</c:NavigationView>
+
+					<StackPanel Margin="0 10 10 0"
+								Spacing="10"
+								Orientation="Horizontal"
+								VerticalAlignment="Top"
+								HorizontalAlignment="Right">
+						<Button Classes="mac"
+								FontSize="8"
+								Content="&#xE921;"
+								Foreground="Black"
+								Background="#077900"
+								Command="{Binding MinimizeCommand}"
+								FontFamily="{StaticResource FontIcon}"/>
+
+						<Button Classes="mac"
+								FontSize="7"
+								Background="#7F0000"
+								Foreground="Black"
+								Command="{Binding CloseCommand}"
+								Content="&#xEF2C;"
+								FontFamily="{StaticResource FontIcon}"/>
+					</StackPanel>
+				</Grid>
+				<ContentControl Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Page}"/>
+		</Grid>
+	</Grid>
+</Window>

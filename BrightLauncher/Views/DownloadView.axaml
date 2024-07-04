@@ -1,0 +1,70 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 xmlns:c="using:BrightLauncher.Control"
+             x:Class="BrightLauncher.Views.DownloadView">
+		<Grid Margin="100 70">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<Grid  Grid.Row="0">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition/>
+					<ColumnDefinition/>
+				</Grid.ColumnDefinitions>
+
+				<Button Command="{Binding To_VersionsCommand}" BorderBrush="Black" Padding="0" Grid.Column="0" Margin="10 5 5 5" Classes="button" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#1D1D1D" CornerRadius="10">
+					<Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+						<Grid.RowDefinitions>
+							<RowDefinition/>
+							<RowDefinition Height="40"/>
+						</Grid.RowDefinitions>
+						<Border BorderBrush="#1D1D1D" BorderThickness="2" Grid.Row="0" CornerRadius="10 10 0 0">
+							<Border.Background>
+								<ImageBrush Opacity="0.6" Source="/Assets/background1.png" Stretch="UniformToFill"/>
+							</Border.Background>
+						</Border>
+						<Border Grid.Row="1" Background="#1D1D1D" CornerRadius="0 0 10 10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+							<TextBlock Text="游戏版本" VerticalAlignment="Center" Margin="10 0 0 0" FontWeight="Bold" FontSize="15"/>
+						</Border>
+					</Grid>
+				</Button>
+
+				<Button Grid.Column="1" Margin="5 5 5 5" Classes="button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#1D1D1D" CornerRadius="10">
+					<Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+						<Grid.RowDefinitions>
+							<RowDefinition/>
+							<RowDefinition Height="40"/>
+						</Grid.RowDefinitions>
+						<Border BorderBrush="#1D1D1D" BorderThickness="2" Grid.Row="0" CornerRadius="10 10 0 0">
+							<Border.Background>
+								<ImageBrush Opacity="0.6" Source="/Assets/background2.png" Stretch="UniformToFill"/>
+							</Border.Background>
+						</Border>
+						<Border Grid.Row="1" Background="#1D1D1D" CornerRadius="0 0 10 10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+							<TextBlock Text="模组整合" VerticalAlignment="Center" Margin="10 0 0 0" FontWeight="Bold" FontSize="15"/>
+						</Border>
+					</Grid>
+				</Button>
+			</Grid>
+			<Button Command="{Binding To_OtherCommand}" Grid.Row="1" Margin="10 5 5 5" Classes="button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#1D1D1D" CornerRadius="10">
+				<Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+					<Grid.RowDefinitions>
+						<RowDefinition/>
+						<RowDefinition Height="40"/>
+					</Grid.RowDefinitions>
+					<Border BorderBrush="#1D1D1D" BorderThickness="2" Grid.Row="0" CornerRadius="10 10 0 0">
+						<Border.Background>
+							<ImageBrush Opacity="1" Source="/Assets/background3.png" Stretch="UniformToFill"/>
+						</Border.Background>
+					</Border>
+					<Border Grid.Row="1" Background="#1D1D1D" CornerRadius="0 0 10 10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+						<TextBlock Text="其他杂类" VerticalAlignment="Center" Margin="10 0 0 0" FontWeight="Bold" FontSize="15"/>
+					</Border>
+				</Grid>
+			</Button>
+		</Grid>
+</UserControl>
