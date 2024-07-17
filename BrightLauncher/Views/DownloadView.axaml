@@ -16,7 +16,9 @@
 					<ColumnDefinition/>
 				</Grid.ColumnDefinitions>
 
-				<Button Command="{Binding To_VersionsCommand}" BorderBrush="Black" Padding="0" Grid.Column="0" Margin="10 5 5 5" Classes="button" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#1D1D1D" CornerRadius="10">
+				<Button Command="{Binding NavigationToCommand}"
+						CommandParameter="Version"
+						BorderBrush="Black" Padding="0" Grid.Column="0" Margin="10 5 5 5" Classes="button" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#1D1D1D" CornerRadius="10">
 					<Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 						<Grid.RowDefinitions>
 							<RowDefinition/>
@@ -50,7 +52,15 @@
 					</Grid>
 				</Button>
 			</Grid>
-			<Button Command="{Binding To_OtherCommand}" Grid.Row="1" Margin="10 5 5 5" Classes="button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#1D1D1D" CornerRadius="10">
+			<Button Command="{Binding NavigationToCommand}" 
+					CommandParameter="Other"
+					Grid.Row="1" 
+					Margin="10 5 5 5"
+					Classes="button"
+					HorizontalAlignment="Stretch" 
+					VerticalAlignment="Stretch"
+					Background="#1D1D1D"
+					CornerRadius="10">
 				<Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 					<Grid.RowDefinitions>
 						<RowDefinition/>

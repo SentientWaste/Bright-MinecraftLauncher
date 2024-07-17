@@ -1,0 +1,23 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="BrightLauncher.Views.Download.Other.NewsListView">
+	<Expander x:Name="IsOk" HorizontalAlignment="Stretch" Margin="0 10 0 0" CornerRadius="20" IsExpanded="True">
+		<StackPanel Orientation="Vertical">
+			<Image Name="image"/>
+			<Grid Margin="10">
+				<StackPanel>
+					<TextBlock Name="mTitle" FontWeight="Bold" FontFamily="Din Pro" Text="Hello" FontSize="15"/>
+					<TextBlock Name="Message" Margin="0,5,0,0" Opacity="0.65" FontFamily="Din Pro" Text="Hello" FontSize="12.5"/>
+					<TextBlock Name="Date" Margin="0,5,0,0" Opacity="0.65" FontFamily="Din Pro" Text="发布日期：2022-08.31" FontSize="12.5"/>
+				</StackPanel>
+			</Grid>
+			<Grid Margin="10">
+				<TextBlock VerticalAlignment="Center" FontWeight="Bold" FontFamily="Din Pro" Text="在浏览器中打开：" FontSize="13"/>
+				<TextBlock Foreground="#0062A2" FontWeight="Bold" HorizontalAlignment="Right" Name="link"/>
+			</Grid>
+		</StackPanel>
+	</Expander>
+</UserControl>

@@ -3,10 +3,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="BrightLauncher.Views.Download.Other.InstallAuxiliaryView">
-	<ListBox Margin="10" IsVisible="{Binding IsLoadFinish}"
-					 Background="Transparent"
-					 ItemsSource="{Binding VersionManifestEntries}">
+             x:Class="BrightLauncher.Views.Home.TaskView">
+	<ListBox Margin="20 20 20 20" IsVisible="{Binding IsLoadFinish}"
+			 Background="Transparent">
 		<ListBox.Styles>
 			<Style Selector="ListBoxItem">
 				<Setter Property="CornerRadius" Value="20"/>
@@ -26,18 +25,21 @@
 				</Setter>
 				<Setter Property="Template">
 					<ControlTemplate>
-						<Border BoxShadow="0 0 2 4 #151515" Background="#191919"
+						<Border BoxShadow="0 0 2 4 #191919" Background="#202020"
 								Padding="0 6"
 								Name="PRAT_Layout"
 								Transitions="{TemplateBinding Transitions}"
 								CornerRadius="{TemplateBinding CornerRadius}">
-								<Grid Name="PART_TextBlockGroup"
-									  Transitions="{TemplateBinding Transitions}">
+							<Grid Name="PART_TextBlockGroup"
+								  Transitions="{TemplateBinding Transitions}">
+								<WrapPanel VerticalAlignment="Center">
 									<TextBlock VerticalAlignment="Center" Text="{TemplateBinding Content}"
 											   FontWeight="SemiBold"
 											   Margin="20 0 0 0"
 											   FontSize="16"/>
-								</Grid>
+									<ProgressBar IsIndeterminate="True" Margin="20 0 0 0" Height="10" CornerRadius="20"/>
+								</WrapPanel>
+							</Grid>
 						</Border>
 					</ControlTemplate>
 				</Setter>
@@ -52,6 +54,8 @@
 			</Style>
 		</ListBox.Styles>
 		
-		<ListBoxItem Content="没有任何辅助"/>
+		<ListBoxItem Content="下载版本 1.8.9"/>
+		<ListBoxItem Content="下载版本 1.18.2"/>
+		<ListBoxItem Content="下载模组 BoxBar"/>
 	</ListBox>
 </UserControl>

@@ -10,39 +10,39 @@
 		BoxShadow="0 0 2 4 #151515"
 		CornerRadius="20"
 		Padding="16 12">
-			<Grid ColumnDefinitions="Auto, Auto, 1*, Auto, Auto,Auto">
-				<Border Margin="10 0" Height="35" Width="35">
+			<Grid ColumnDefinitions="Auto, Auto,Auto, 1*, Auto, Auto,Auto">
+				<Border Grid.Column="1" Margin="10 0" Height="35" Width="35">
 					<Border.Background>
 						<ImageBrush Source="/Assets/grass.webp" Stretch="UniformToFill"/>
 					</Border.Background>
 				</Border>
 
 				<Grid Name="PART_TextBlockGroup"
-					  Grid.Column="1"
+					  Grid.Column="2"
 					  RowDefinitions="Auto, Auto">
-					<TextBlock Text="114514"
+					<TextBlock Text="{Binding VersionEntry.Id}"
 							   FontWeight="SemiBold"
 							   FontSize="14"/>
 
 					<TextBlock
 							   FontWeight="Regular"
 							   FontSize="12"
-							   Grid.Row="1" Text="哼哼哼啊啊啊啊啊啊啊啊啊啊啊啊">
+							   Grid.Row="1" Text="{Binding VersionEntry.Type}">
 					</TextBlock>
 				</Grid>
 
-				<Button Content="返回"
-						Grid.Column="4"
-		                Command="{Binding BackCommand}"
-		                Classes="button"
-		                Background="#181818"
-		                VerticalAlignment="Center"
+				<Button Content="&#xE72B;"
+						Grid.Column="0"
+						Classes="button"
+						CornerRadius="114514"
+						Width="30"
 						Height="30"
-						Width="100"
-						CornerRadius="8"
-		                HorizontalAlignment="Center"
-		                VerticalContentAlignment="Center"
-						Padding="12 6">
+						Background="#1D1D1D"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Center"
+						FontFamily="{StaticResource FontIcon}"
+		                Command="{Binding BackCommand}"
+						VerticalContentAlignment="Center">
 				</Button>
 
 				<Button Content="安装"
@@ -62,80 +62,174 @@
 			</Grid>
 		</Border>
 
-		<ItemsControl Grid.Row="1"
-					  ClipToBounds="False"
+		<ScrollViewer  Grid.Row="1">
+			<ItemsControl ClipToBounds="False"
 					  Margin="20 16 20 20"
 					  VerticalAlignment="Top">
-			<ItemsControl.ItemsPanel>
-				<ItemsPanelTemplate>
-					<StackPanel Spacing="12"/>
-				</ItemsPanelTemplate>
-			</ItemsControl.ItemsPanel>
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel Spacing="12"/>
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
 
-			<Border BoxShadow="0 0 2 4 #151515"
-					Background="#202020"
-					CornerRadius="20"
-					Padding="16 12">
-				<Grid ColumnDefinitions="Auto, Auto, 1*, Auto">
-					<Border Margin="10 0" Height="35" Width="35">
-						<Border.Background>
-							<ImageBrush Source="/Assets/forge.png" Stretch="UniformToFill"/>
-						</Border.Background>
-					</Border>
+				<Expander CornerRadius="20"
+						  IsEnabled="{Binding CanSelectForge}"
+						  HorizontalAlignment="Stretch">
+					<Expander.Header>
+						<Grid ColumnDefinitions="Auto, Auto, 1*, Auto">
+							<Border Margin="10 0" Height="35" Width="35">
+								<Border.Background>
+									<ImageBrush Source="/Assets/forge.png" Stretch="UniformToFill"/>
+								</Border.Background>
+							</Border>
 
-					<TextBlock FontWeight="Bold"
-							   FontSize="18"
-							   VerticalAlignment="Center"
-							   Grid.Column="1"
-							   Text="Forge"/>
+							<TextBlock FontWeight="Bold"
+									   FontSize="18"
+									   VerticalAlignment="Center"
+									   Grid.Column="1"
+									   Text="Forge"/>
 
-					<ComboBox Grid.Column="3"
-							  ItemsSource="{Binding Forges}"/>
-				</Grid>
-			</Border>
+							<Button Content="&#xE711;"
+									Grid.Column="3"
+		                            Classes="button"
+		                            Width="30"
+		                            Height="30"
+		                            Margin="0 0 -10 0"
+		                            CornerRadius="114514"
+		                            Background="Transparent"
+		                            VerticalAlignment="Center"
+		                            HorizontalAlignment="Center"
+		                            FontFamily="{StaticResource FontIcon}"
+		                            Command="{Binding UnselectedModLoaderCommand}"
+									CommandParameter="Forge"
+		                            VerticalContentAlignment="Center"/>
+						</Grid>
+					</Expander.Header>
 
-			<Border BoxShadow="0 0 2 4 #151515"
-					Background="#202020"
-					CornerRadius="20"
-					Padding="16 12">
-				<Grid ColumnDefinitions="Auto, Auto, 1*, Auto">
-					<Border Margin="10 0" Height="35" Width="35">
-						<Border.Background>
-							<ImageBrush Source="/Assets/fabric.png" Stretch="UniformToFill"/>
-						</Border.Background>
-					</Border>
+					<Expander.Content>
+						<ListBox ItemsSource="{Binding Forges}"
+								 SelectedItem="{Binding SelectedForge}">
+							<ListBox.Styles>
+								<Style Selector="ListBoxItem">
+									<Setter Property="CornerRadius" Value="20"/>
+									<Setter Property="Margin" Value="0 5 0 0"/>
+								</Style>
+							</ListBox.Styles>
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
+					</Expander.Content>
+				</Expander>
 
-					<TextBlock FontWeight="Bold"
-							   FontSize="18"
-							   VerticalAlignment="Center"
-							   Grid.Column="1" Text="Fabric"/>
+				<Expander CornerRadius="20"
+						  IsEnabled="{Binding CanSelectFabric}"
+						  HorizontalAlignment="Stretch">
+					<Expander.Header>
+						<Grid ColumnDefinitions="Auto, Auto, 1*, Auto">
+							<Border Margin="10 0" Height="35" Width="35">
+								<Border.Background>
+									<ImageBrush Source="/Assets/fabric.png" Stretch="UniformToFill"/>
+								</Border.Background>
+							</Border>
 
-					<ComboBox Grid.Column="3"
-							  ItemsSource="{Binding Fabrics}"/>
-				</Grid>
-			</Border>
+							<TextBlock FontWeight="Bold"
+									   FontSize="18"
+									   VerticalAlignment="Center"
+									   Grid.Column="1"
+									   Text="Fabric"/>
 
-			<Border BoxShadow="0 0 2 4 #151515"
-					Background="#202020"
-					CornerRadius="20"
-					Padding="16 12">
-				<Grid ColumnDefinitions="Auto, Auto, 1*, Auto">
-					<Border Margin="10 0" Height="35" Width="35">
-						<Border.Background>
-							<ImageBrush Source="/Assets/optifine.png" Stretch="UniformToFill"/>
-						</Border.Background>
-					</Border>
+							<Button Content="&#xE711;"
+									Grid.Column="3"
+									Classes="button"
+		                            Width="30"
+		                            Height="30"
+									Margin="0 0 -10 0"
+		                            CornerRadius="114514"
+		                            Background="Transparent"
+		                            VerticalAlignment="Center"
+		                            HorizontalAlignment="Center"
+		                            FontFamily="{StaticResource FontIcon}"
+		                            Command="{Binding UnselectedModLoaderCommand}"
+									CommandParameter="Fabric"
+									VerticalContentAlignment="Center">
+							</Button>
+						</Grid>
+					</Expander.Header>
 
+					<Expander.Content>
+						<ListBox  ItemsSource="{Binding Fabrics}"
+								  SelectedItem="{Binding SelectedFabric}">
+							<ListBox.Styles>
+								<Style Selector="ListBoxItem">
+									<Setter Property="CornerRadius" Value="20"/>
+									<Setter Property="Margin" Value="0 5 0 0"/>
+								</Style>
+							</ListBox.Styles>
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<TextBlock FontWeight="Bold"  Text="{Binding Name}" VerticalAlignment="Center"/>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
+					</Expander.Content>
+				</Expander>
 
-					<TextBlock FontWeight="Bold"
-							   FontSize="18"
-							   VerticalAlignment="Center"
-							   Grid.Column="1" Text="Optifine"/>
-					
-					<ComboBox Grid.Column="3"
-							  ItemsSource="{Binding Optifines}"/>
-				</Grid>
-			</Border>
-		</ItemsControl>		
+				<Expander CornerRadius="20"
+						  IsEnabled="{Binding CanSelectOptifine}"
+						  HorizontalAlignment="Stretch">
+					<Expander.Header>
+						<Grid ColumnDefinitions="Auto, Auto, 1*, Auto">
+							<Border Margin="10 0" Height="35" Width="35">
+								<Border.Background>
+									<ImageBrush Source="/Assets/optifine.png" Stretch="UniformToFill"/>
+								</Border.Background>
+							</Border>
+
+							<TextBlock FontWeight="Bold"
+									   FontSize="18"
+									   VerticalAlignment="Center"
+									   Grid.Column="1"
+									   Text="Optifine"/>
+
+							<Button Content="&#xE711;"
+		                             Grid.Column="3"
+		                             Classes="button"
+		                             Width="30"
+		                             Height="30"
+		                             Margin="0 0 -10 0"
+		                             CornerRadius="114514"
+		                             Background="Transparent"
+		                             VerticalAlignment="Center"
+		                             HorizontalAlignment="Center"
+		                             FontFamily="{StaticResource FontIcon}"
+		                            Command="{Binding UnselectedModLoaderCommand}"
+									CommandParameter="Optifine"
+									VerticalContentAlignment="Center">
+							</Button>
+						</Grid>
+					</Expander.Header>
+
+					<Expander.Content>
+						<ListBox  ItemsSource="{Binding Optifines}"
+								  SelectedItem="{Binding SelectedOptifine}">
+							<ListBox.Styles>
+								<Style Selector="ListBoxItem">
+									<Setter Property="CornerRadius" Value="20"/>
+									<Setter Property="Margin" Value="0 5 0 0"/>
+								</Style>
+							</ListBox.Styles>
+							<ListBox.ItemTemplate>
+								<DataTemplate>
+									<TextBlock FontWeight="Bold" Text="{Binding Name}" VerticalAlignment="Center"/>
+								</DataTemplate>
+							</ListBox.ItemTemplate>
+						</ListBox>
+					</Expander.Content>
+				</Expander>
+			</ItemsControl>
+		</ScrollViewer>
 	</Grid>
 </UserControl>

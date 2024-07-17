@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrightLauncher", "BrightLau
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrightLauncher.Desktop", "BrightLauncher.Desktop\BrightLauncher.Desktop.csproj", "{1BE41C3E-EBC0-4F2B-A2F9-02C3EF91B5C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineList", "OnlineList\OnlineList.csproj", "{C9484817-7B1A-47D0-804A-309A22B95CBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1BE41C3E-EBC0-4F2B-A2F9-02C3EF91B5C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BE41C3E-EBC0-4F2B-A2F9-02C3EF91B5C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BE41C3E-EBC0-4F2B-A2F9-02C3EF91B5C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9484817-7B1A-47D0-804A-309A22B95CBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9484817-7B1A-47D0-804A-309A22B95CBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9484817-7B1A-47D0-804A-309A22B95CBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9484817-7B1A-47D0-804A-309A22B95CBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -77,8 +77,7 @@ namespace BrightLauncher.ViewModels
         [RelayCommand]
         private void Back()
         {
-            var mainWindowVM = (_mainWindow.DataContext as MainWindowViewModel)!;
-            mainWindowVM.Page = new DownloadView();
+            WeakReferenceMessenger.Default.Send(new PageChangeMessage(new DownloadView()));
         }
 
         async partial void OnCurrentVersionTypeChanged(int value)

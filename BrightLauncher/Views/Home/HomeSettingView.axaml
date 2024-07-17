@@ -3,8 +3,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-			 xmlns:c="using:BrightLauncher.Control"
-             x:Class="BrightLauncher.Views.Download.OtherView">
+			 xmlns:vm="using:BrightLauncher.ViewModels"
+             x:Class="BrightLauncher.Views.Home.HomeSettingView"
+			 x:DataType="vm:HomeSettingViewModel">
 	<Border Margin="20 30 20 20" BoxShadow="0 0 2 4 #151515" Background="#202020" CornerRadius="20">
 		<Grid>
 			<Grid.ColumnDefinitions>
@@ -14,7 +15,7 @@
 			<Border CornerRadius="10 0 0 10" Background="#181818" Grid.Column="0">
 				<StackPanel Margin="10">
 					<WrapPanel>
-						<Button Command="{Binding BackCommand}" Content="&#xE72B;"
+						<Button Content="&#xE72B;"
 								Grid.Column="0"
 								Classes="button"
 								CornerRadius="114514"
@@ -24,17 +25,19 @@
 								VerticalAlignment="Center"
 								HorizontalAlignment="Center"
 								FontFamily="{StaticResource FontIcon}"
+								Command="{Binding BackCommand}"
 								VerticalContentAlignment="Center">
 
-						</Button>						
-						
-						<TextBlock Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="其他" FontWeight="Bold" FontSize="15"/>
+						</Button>
+
+						<TextBlock Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="版本" FontWeight="Bold" FontSize="15"/>
 					</WrapPanel>
-					<RadioButton IsChecked="True" Command="{Binding To_NewsViewCommand}" Margin="0 10 0 0" CornerRadius="20" HorizontalAlignment="Stretch" Background="#1D1D1D" Height="35" Content="新闻"/>
-					<RadioButton Command="{Binding To_InstallToolsViewCommand}" Margin="0 10 0 0" HorizontalAlignment="Stretch" CornerRadius="20" Background="#1D1D1D" Height="35" Content="工具" />
-					<RadioButton Command="{Binding To_InstallAuxiliaryViewCommand}" Margin="0 10 0 0" CornerRadius="20" HorizontalAlignment="Stretch" Background="#1D1D1D" Height="35" Content="辅助"/>
+					<RadioButton Command="{Binding To_SelectedVersionsViewCommand}" IsChecked="True"  Margin="0 10 0 0" CornerRadius="20" HorizontalAlignment="Stretch" Background="#1D1D1D" Height="35" Content="选择"/>
+					<RadioButton Command="{Binding To_TaskViewCommand}"  Margin="0 10 0 0" HorizontalAlignment="Stretch" CornerRadius="20" Background="#1D1D1D" Height="35" Content="任务" />
+					<RadioButton Command="{Binding To_OtherOptionViewCommand}" Margin="0 10 0 0" CornerRadius="20" HorizontalAlignment="Stretch" Background="#1D1D1D" Height="35" Content="其他"/>
 				</StackPanel>
 			</Border>
+			
 			<ContentControl Content="{Binding Page}" Grid.Column="1"/>
 		</Grid>
 	</Border>

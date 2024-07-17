@@ -1,10 +1,13 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
+using BrightLauncher.Class.Messages;
 using BrightLauncher.Views;
 using BrightLauncher.Views.Download;
+using BrightLauncher.Views.Home;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,25 +18,17 @@ namespace BrightLauncher.ViewModels
 {
     public sealed partial class DownloadViewModel : ObservableObject
     {
-        private readonly Window _mainWindow;
-
-        public DownloadViewModel()
-        {
-            _mainWindow = (Application.Current!.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime)!.MainWindow!;
-        }
-
         [RelayCommand]
-        private void To_Other()
+        private void NavigationTo(string key)
         {
-            var mainWindowVM = (_mainWindow.DataContext as MainWindowViewModel)!;
-            mainWindowVM.Page = new OtherView();
-        }
+            var control = key switch
+            {
+                "Other" => new OtherView(),
+                "Version" => new VersionsView(),
+                _ => new UserControl()
+            };
 
-        [RelayCommand]
-        private void To_Versions()
-        {
-            var mainWindowVM = (_mainWindow.DataContext as MainWindowViewModel)!;
-            mainWindowVM.Page = new VersionsView();
+            WeakReferenceMessenger.Default.Send(new PageChangeMessage(control));
         }
     }
 }

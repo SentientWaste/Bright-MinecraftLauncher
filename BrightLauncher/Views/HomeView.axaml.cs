@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using BrightLauncher.ViewModels;
 
 namespace BrightLauncher.Views
 {
@@ -7,6 +8,7 @@ namespace BrightLauncher.Views
         public HomeView()
         {
             InitializeComponent();
+            DataContext = new HomeViewModel();
         }
     }
 }

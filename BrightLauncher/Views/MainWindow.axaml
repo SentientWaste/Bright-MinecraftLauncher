@@ -63,7 +63,25 @@
 								FontFamily="{StaticResource FontIcon}"/>
 					</StackPanel>
 				</Grid>
-				<ContentControl Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Page}"/>
+			<ContentControl Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding Page}"/>
+			<Border x:Name="messagebox" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 -500 20" BoxShadow="0 0 2 4 #151515" Width="280" Height="120" Background="#2D2D2D"  CornerRadius="0 0 20 20" Grid.Row="1">
+				<StackPanel>
+					<Border HorizontalAlignment="Stretch" Height="5" Background="White"/>
+					<StackPanel Margin="20">
+						<TextBlock Text="通知" FontSize="18" FontWeight="Bold"/>
+						<TextBlock x:Name="message" TextWrapping="Wrap" FontSize="16"/>
+					</StackPanel>
+				</StackPanel>
+
+				<Border.Transitions>
+					<Transitions>
+
+						<ThicknessTransition Property="Margin"
+											  Duration="0:0:0.20"
+											  Easing="SineEaseOut"/>
+						</Transitions>
+					</Border.Transitions>
+				</Border>
 		</Grid>
 	</Grid>
 </Window>

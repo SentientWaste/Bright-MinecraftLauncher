@@ -10,6 +10,7 @@ namespace BrightLauncher.Class.Data
     public sealed record ModLoaderData
     {
         public object Data {  get; set; }
+        public string Name {  get; set; }
         public LoaderType Type {  get; set; }
     }
 }

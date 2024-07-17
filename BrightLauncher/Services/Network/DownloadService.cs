@@ -49,6 +49,7 @@ namespace BrightLauncher.Services.Network
                             result = forges.Select(x => new ModLoaderData
                             {
                                 Data = x,
+                                Name =$"{x.ForgeVersion}",
                                 Type = loaderType,
                             });
                             break;
@@ -57,6 +58,7 @@ namespace BrightLauncher.Services.Network
                             result = fabrics.Select(x => new ModLoaderData
                             {
                                 Data = x,
+                                Name = $"{x.BuildVersion}",
                                 Type = loaderType,
                             });
                             break;
@@ -65,6 +67,7 @@ namespace BrightLauncher.Services.Network
                             result = optifines.Select(x => new ModLoaderData
                             {
                                 Data = x,
+                                Name = $"{x.Type}_{x.Patch}",
                                 Type = loaderType,
                             });
                             break;

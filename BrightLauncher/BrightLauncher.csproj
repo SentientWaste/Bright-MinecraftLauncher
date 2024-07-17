@@ -31,10 +31,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="Avalonia" Version="11.0.11" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.11" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.11" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="MinecraftLaunch" Version="3.0.7" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
@@ -46,5 +46,10 @@
 
   <ItemGroup>
     <UpToDateCheckInput Remove="Views\Download\VersionsView.axaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Class\Tasks\" />
+    <Folder Include="Views\Playground\" />
   </ItemGroup>
 </Project>

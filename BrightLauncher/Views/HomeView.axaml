@@ -11,7 +11,15 @@
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
 			<StackPanel Grid.Row="1" Margin="15" VerticalAlignment="Bottom" HorizontalAlignment="Left">
-				<Button CornerRadius="10 10 0 0" Classes="button"
+				<Button Command="{Binding messageCommand}" CornerRadius="20" Classes="button"
+						Margin="0 10 0 0"
+						Width="225"
+						Height="35"
+						Content="messagebox test"
+						Background="#1D1D2D">
+					<TextBlock Text="messagebox test" Margin="15 0 15 0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+				</Button>				
+				<Button Command="{Binding To_HomeSettingCommand}" CornerRadius="10 10 0 0" Classes="button"
 						Margin="0 10 0 0"
 						Width="225"
 						Height="35"
